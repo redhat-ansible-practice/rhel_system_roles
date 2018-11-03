@@ -1,0 +1,19 @@
+---
+# tasks file for rhel_system_roles
+
+
+  - name: add rhel server extra subscription
+    rhsm_repository:
+      name: rhel-7-server-extras-rpms
+      state: enabled
+
+  - name: install the rhel system roles
+    yum:
+      name: rhel-system-roles
+      state: installed
+
+  - name: disable the rhel server extra subscription
+    rhsm_repository:
+      name: rhel-7-server-extras-rpms
+      state: disabled
+
